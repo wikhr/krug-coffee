@@ -1,0 +1,41 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { randomUUID } from 'node:crypto';
+
+const base = process.env.KRUG_BASE_URL || 'http://127.0.0.1:8787';
+const credentialsPath = process.env.KRUG_CREDENTIALS || resolve(import.meta.dirname, '../artifacts/demo-credentials-local.txt');
+const adminLine = (await readFile(credentialsPath, 'utf8')).split('\n').find(line => line.startsWith('admin: '));
+const [email, password] = adminLine.slice(7).split(' / ');
+async function call(path, method = 'GET', body, cookie) {
+  const res = await fetch(`${base}${path}`, { method, headers: { ...(body ? { 'Content-Type': 'application/json', Origin: base } : {}), ...(cookie ? { Cookie: cookie } : {}) }, body: body ? JSON.stringify(body) : undefined });
+  return { status: res.status, data: await res.json(), cookie: res.headers.get('set-cookie')?.split(';')[0] };
+}
+const first = await call('/api/auth/login', 'POST', { email, password });
+assert.equal(first.status, 200, JSON.stringify(first.data));
+assert.equal(first.data.user.mustChangePassword, true);
+const blocked = await call('/api/admin/menu', 'GET', undefined, first.cookie);
+assert.equal(blocked.status, 403);
+const newPassword = `${randomUUID()}Aa1!`;
+const change = await call('/api/auth/change-password', 'POST', { oldPassword: password, newPassword }, first.cookie);
+assert.equal(change.status, 200);
+const login = await call('/api/auth/login', 'POST', { email, password: newPassword });
+assert.equal(login.status, 200);
+const before = await call('/api/admin/menu', 'GET', undefined, login.cookie);
+assert.equal(before.data.items.length, 18);
+const item = before.data.items.find(entry => entry.id === 'coffee-cappuccino');
+const updated = await call(`/api/admin/items/${item.id}`, 'PATCH', { priceKopeks: item.price_kopeks + 100 }, login.cookie);
+assert.equal(updated.status, 200, JSON.stringify(updated.data));
+const publicMenu = await call('/api/menu');
+assert.equal(publicMenu.data.items.find(entry => entry.id === item.id).price_kopeks, item.price_kopeks + 100);
+const restored = await call(`/api/admin/items/${item.id}`, 'PATCH', { priceKopeks: item.price_kopeks }, login.cookie);
+assert.equal(restored.status, 200);
+const uniqueEmail = `staff-${randomUUID()}@demo.krug.invalid`;
+const created = await call('/api/admin/staff', 'POST', { displayName: 'Тестовый коллега', email: uniqueEmail }, login.cookie);
+assert.equal(created.status, 201, JSON.stringify(created.data));
+assert.ok(created.data.temporaryPassword.length >= 12);
+const disabled = await call(`/api/admin/staff/${created.data.id}`, 'PATCH', { disabled: true }, login.cookie);
+assert.equal(disabled.status, 200);
+const disabledLogin = await call('/api/auth/login', 'POST', { email: uniqueEmail, password: created.data.temporaryPassword });
+assert.equal(disabledLogin.status, 401);
+console.info(`Admin smoke passed at ${base}: role gate, menu updates, staff creation and disable.`);

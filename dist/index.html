@@ -12,11 +12,11 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержимому</a>
-  <div class="announcement">Хороший день начинается с маленького ритуала.</div>
+  <div class="announcement">Демоверсия: заказы и оплата тестовые, деньги не списываются и напитки не готовятся.</div>
   <header class="header">
     <div class="container header-inner">
       <a class="brand" href="#" aria-label="milo — на главную"><span class="brand-mark" aria-hidden="true">◉</span><span>milo<span class="brand-caption">кофе и время для себя</span></span></a>
-      <nav class="desktop-nav" aria-label="Основная навигация"><a href="#menu">Меню</a><a href="#about">Наша история</a><a href="#atmosphere">Атмосфера</a></nav>
+      <nav class="desktop-nav" aria-label="Основная навигация"><a href="#menu">Меню</a><a href="#account">Аккаунт</a><a href="#about">Наша история</a><a href="#atmosphere">Атмосфера</a></nav>
       <div class="header-actions">
         <a class="button button-small header-cta" href="#visit">Заглянуть в гости <span aria-hidden="true">↗</span></a>
         <button class="cart-button" type="button" aria-label="Открыть корзину, товаров: 0" aria-controls="cart-dialog">
@@ -26,7 +26,7 @@
         <button class="menu-toggle" type="button" aria-label="Открыть навигацию" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
       </div>
     </div>
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" hidden><a href="#menu">Меню</a><a href="#about">Наша история</a><a href="#atmosphere">Атмосфера</a><a href="#visit">Заглянуть в гости ↗</a></nav>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" hidden><a href="#menu">Меню</a><a href="#order">Заказ</a><a href="#account">Аккаунт</a><a href="#about">Наша история</a><a href="#atmosphere">Атмосфера</a><a href="#visit">Контакты</a></nav>
   </header>
   <main id="main">
     <section class="hero container" aria-labelledby="hero-title">
@@ -62,15 +62,15 @@
         <div class="popular-grid">
           <article class="drink-card drink-card-featured">
             <div class="drink-image"><img src="./assets/coffee.jpg" alt="Капучино с нежным латте-артом" width="1536" height="1024" loading="lazy"><span class="card-tag">Бестселлер</span></div>
-            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="cappuccino">Капучино</button></h3><p>Эспрессо, молоко и воздушная пена</p></div><div class="drink-actions"><strong>290 ₽</strong><button class="add-button" type="button" data-add-product="cappuccino">Добавить <span aria-hidden="true">+</span></button></div></div>
+            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="coffee-cappuccino">Капучино</button></h3><p>Эспрессо, молоко и воздушная пена</p></div><div class="drink-actions"><strong>290 ₽</strong><button class="add-button" type="button" data-add-product="coffee-cappuccino">Добавить <span aria-hidden="true">+</span></button></div></div>
           </article>
           <article class="drink-card">
             <div class="drink-image"><img src="./assets/iced-latte.jpg" alt="Айс-латте со льдом в высоком стеклянном стакане" width="1254" height="1254" loading="lazy"></div>
-            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="iced-latte">Айс-латте</button></h3><p>Прохладный, сливочный, в меру бодрый</p></div><div class="drink-actions"><strong>340 ₽</strong><button class="add-button" type="button" data-add-product="iced-latte">Добавить <span aria-hidden="true">+</span></button></div></div>
+            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="cold-iced-latte">Айс-латте</button></h3><p>Прохладный, сливочный, в меру бодрый</p></div><div class="drink-actions"><strong>340 ₽</strong><button class="add-button" type="button" data-add-product="cold-iced-latte">Добавить <span aria-hidden="true">+</span></button></div></div>
           </article>
           <article class="drink-card">
             <div class="drink-image drink-image-crop"><img src="./assets/coffee.jpg" alt="Флэт уайт на двойном эспрессо" width="1536" height="1024" loading="lazy"></div>
-            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="flat-white">Флэт уайт</button></h3><p>Двойной эспрессо и тонкая молочная текстура</p></div><div class="drink-actions"><strong>320 ₽</strong><button class="add-button" type="button" data-add-product="flat-white">Добавить <span aria-hidden="true">+</span></button></div></div>
+            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="coffee-flat-white">Флэт уайт</button></h3><p>Двойной эспрессо и тонкая молочная текстура</p></div><div class="drink-actions"><strong>320 ₽</strong><button class="add-button" type="button" data-add-product="coffee-flat-white">Добавить <span aria-hidden="true">+</span></button></div></div>
           </article>
         </div>
       </div>
@@ -90,8 +90,49 @@
           <button class="menu-tab" role="tab" aria-selected="false" data-category="food">Еда</button>
         </div>
         <div class="menu-list" role="tabpanel" aria-live="polite"></div>
-        <p class="menu-note">Растительное молоко — кокос, миндаль, овёс <span>+ 70 ₽</span></p>
+        <p class="menu-note">Цены берутся из базы данных. В демозаказе доступны позиции без добавок.</p>
       </div>
+    </section>
+
+    <section id="order" class="section container shop-section" aria-labelledby="order-title">
+      <div class="section-head"><div><p class="eyebrow"><span></span> Только демонстрация</p><h2 id="order-title">Собери свой<br><em>заказ.</em></h2></div><p>Проверь, как работает оформление. Это тестовая система: реальные деньги не списываются, заказы не готовятся.</p></div>
+      <div class="shop-grid">
+        <div class="shop-panel"><h3>Корзина</h3><div id="cart-list" aria-live="polite">Выбери что-нибудь из меню.</div><p class="cart-total">Итого <strong id="cart-total">0 ₽</strong></p></div>
+        <form id="checkout-form" class="shop-panel" hidden>
+          <h3>Оформление</h3>
+          <label for="fulfillment">Как получить тестовый заказ</label>
+          <select id="fulfillment" name="fulfillmentType"><option value="pickup">Самовывоз — как можно скорее</option><option value="dine_in">В зале — к столику</option></select>
+          <div id="table-wrap" hidden><label for="table-number">Номер столика</label><input id="table-number" name="tableNumber" inputmode="numeric" pattern="[1-9][0-9]{0,2}" placeholder="Например, 5"></div>
+          <p class="shop-note">После оформления откроется тестовая касса. Ни один платёж не будет проведён.</p>
+          <button class="button" type="submit">Перейти к тестовой кассе <span aria-hidden="true">↗</span></button>
+        </form>
+      </div>
+      <div id="checkout-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+      <form id="payment-form" class="shop-panel payment-panel" hidden>
+        <p class="eyebrow"><span></span> Тестовая касса</p><h3>Оплата без списания</h3>
+        <p>Используй только одну из вымышленных карт ниже. Не вводи данные настоящей карты.</p>
+        <label for="test-card">Тестовая карта</label>
+        <select id="test-card" name="testCard"><option value="0000 0000 0000 0001">0000 0000 0000 0001 — успех</option><option value="0000 0000 0000 0002">0000 0000 0000 0002 — отказ</option><option value="0000 0000 0000 0003">0000 0000 0000 0003 — отмена</option></select>
+        <button class="button" type="submit">Проверить сценарий <span aria-hidden="true">↗</span></button>
+      </form>
+    </section>
+
+    <section id="account" class="section container account-section" aria-labelledby="account-title">
+      <div class="section-head"><div><p class="eyebrow"><span></span> Аккаунт</p><h2 id="account-title">Твой круг.<br><em>Твоя история.</em></h2></div><p>Для демоверсии доступен тестовый клиент. Не указывай реальные персональные данные.</p></div>
+      <div id="guest-panel" class="shop-panel auth-panel">
+        <h3>Войти</h3>
+        <p class="shop-note">Общий тестовый клиент и общая история заказов — не указывай личные данные.<br>Почта: <code>guest@demo.krug.invalid</code><br>Пароль: <code>KrugDemo2026!</code></p>
+        <form id="login-form"><label for="login-email">Электронная почта</label><input id="login-email" type="email" autocomplete="username" required value="guest@demo.krug.invalid"><label for="login-password">Пароль</label><input id="login-password" type="password" autocomplete="current-password" required><button class="button" type="submit">Войти <span aria-hidden="true">↗</span></button></form>
+        <div id="email-actions" hidden><button class="text-button" id="show-register" type="button">Создать аккаунт</button><button class="text-button" id="show-forgot" type="button">Забыли пароль?</button></div>
+        <form id="register-form" hidden><h4>Регистрация</h4><label for="register-name">Имя</label><input id="register-name" required minlength="2"><label for="register-email">Почта</label><input id="register-email" type="email" required><label for="register-password">Пароль от 12 символов</label><input id="register-password" type="password" minlength="12" required><button class="button" type="submit">Зарегистрироваться</button></form>
+        <form id="forgot-form" hidden><h4>Восстановление</h4><label for="forgot-email">Почта</label><input id="forgot-email" type="email" required><button class="button" type="submit">Отправить письмо</button></form>
+        <form id="reset-form" hidden><h4>Новый пароль</h4><label for="reset-password">Пароль от 12 символов</label><input id="reset-password" type="password" minlength="12" required><button class="button" type="submit">Сохранить пароль</button></form>
+      </div>
+      <div id="member-panel" class="shop-panel auth-panel" hidden><div class="panel-head"><h3 id="member-name">Аккаунт</h3><button id="logout-button" class="text-button" type="button">Выйти</button></div><p id="member-role"></p><form id="change-password-form" hidden><h4>Сменить временный пароль</h4><label for="old-password">Текущий пароль</label><input id="old-password" type="password" required><label for="new-password">Новый пароль от 12 символов</label><input id="new-password" type="password" minlength="12" required><button class="button" type="submit">Сменить пароль</button></form></div>
+      <div id="account-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+      <div id="history-panel" class="shop-panel" hidden><div class="panel-head"><h3>Мои тестовые заказы</h3><button id="refresh-history" class="text-button" type="button">Обновить</button></div><div id="history-list"></div></div>
+      <div id="staff-panel" class="shop-panel" hidden><div class="panel-head"><h3>Демоочередь</h3><button id="refresh-staff" class="text-button" type="button">Обновить</button></div><p class="shop-note">Эти заказы не нужно готовить или выдавать.</p><div id="staff-list"></div></div>
+      <div id="admin-panel" class="shop-panel" hidden><h3>Управление меню и сотрудниками</h3><div id="admin-items"></div><form id="new-item-form"><h4>Добавить позицию</h4><label for="item-category">Категория</label><select id="item-category"></select><label for="item-name">Название</label><input id="item-name" required maxlength="80"><label for="item-description">Описание</label><input id="item-description" maxlength="240"><label for="item-ingredients">Ингредиенты через запятую</label><input id="item-ingredients" maxlength="400"><label for="item-price">Цена, ₽</label><input id="item-price" type="number" min="0" max="100000" step="1" required><button class="button" type="submit">Добавить</button></form><form id="new-staff-form"><h4>Создать сотрудника</h4><label for="staff-name">Имя</label><input id="staff-name" required><label for="staff-email">Почта</label><input id="staff-email" type="email" required><button class="button" type="submit">Создать аккаунт</button></form><p id="staff-credentials" class="shop-note" role="status"></p><div id="staff-accounts"></div></div>
     </section>
 
     <section id="atmosphere" class="atmosphere section reveal" aria-labelledby="atmosphere-title">
@@ -131,7 +172,7 @@
     <div class="cart-head"><div><p class="dialog-kicker">Ваш заказ</p><h2 id="cart-title">Корзина</h2></div><button class="dialog-close cart-close" type="button" aria-label="Закрыть корзину">×</button></div>
     <div class="cart-items" aria-live="polite"></div>
     <div class="cart-summary"><span>Итого</span><strong class="cart-total">0 ₽</strong></div>
-    <a class="button cart-order" href="tel:+78125552020">Позвонить для заказа <span aria-hidden="true">↗</span></a>
+    <a class="button cart-order" href="#order">Оформить демозаказ <span aria-hidden="true">↗</span></a>
   </dialog>
   <div class="cart-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>

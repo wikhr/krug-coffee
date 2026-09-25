@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "krug-coffee",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-25",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "krug-coffee-db",
+      "database_id": "2fb140c0-aea8-429e-a730-990fa46d250e",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "DEMO_MODE": "true",
+    "EMAIL_ENABLED": "false"
+  }
+}

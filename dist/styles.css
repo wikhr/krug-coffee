@@ -36,3 +36,51 @@ dialog{color:var(--ink)}dialog::backdrop{background:rgba(12,29,24,.68);backdrop-
 @media(max-width:760px){.cart-dialog{width:100vw;max-width:100vw}}
 @media(max-width:380px){.hero-copy,.hero-visual{min-width:0}.hero-visual{width:100%;aspect-ratio:auto}.hero h1{font-size:38px;overflow-wrap:anywhere}}
 .visit .eyebrow.light{color:#173d32}.visit .eyebrow.light span{background:#173d32}.visit h2 em{color:#173d32}
+/* Demo ordering and account */
+.shop-section,.account-section{border-top:1px solid var(--line)}
+.shop-section .section-head h2 em,.account-section .section-head h2 em{color:var(--green)}
+.shop-section .section-head>p,.account-section .section-head>p{color:var(--muted)}
+.shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.shop-panel{background:#fffdf8;border:1px solid var(--line);border-radius:18px;padding:30px;margin-bottom:24px;box-shadow:0 12px 36px #173d3209}
+.shop-panel h3{font:400 32px/1.15 var(--serif);color:var(--green);margin:0 0 20px}
+.shop-panel h4{font-size:18px;color:var(--green);margin:24px 0 12px}
+.shop-panel p{color:var(--muted)}
+.shop-panel label{display:block;font-size:13px;font-weight:600;color:var(--green);margin:14px 0 6px}
+.shop-panel input:not([type=checkbox]),.shop-panel select{display:block;width:100%;min-height:46px;border:1px solid #b8c3ba;border-radius:9px;background:#fff;color:var(--ink);padding:10px 12px;font:inherit}
+.shop-panel input:focus-visible,.shop-panel select:focus-visible{outline:3px solid #a06c26;outline-offset:2px}
+.shop-panel button.button{margin-top:22px}
+.shop-note{font-size:13px;line-height:1.6}
+.shop-panel code{font-size:13px;overflow-wrap:anywhere;color:var(--green)}
+.menu-item-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px;white-space:nowrap}
+.small-action,.text-button{border:1px solid var(--green);border-radius:20px;background:transparent;color:var(--green);font-size:13px;font-weight:600;padding:7px 13px;min-height:38px;transition:background .2s,color .2s}
+.small-action:hover,.text-button:hover{background:var(--green);color:white}
+.text-button{border:0;text-decoration:underline;text-underline-offset:4px}
+.cart-row,.staff-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cart-row small{display:block;color:var(--muted);font-size:12px}
+.quantity-control{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.quantity-control button{width:36px;height:36px;border:1px solid var(--green);border-radius:50%;background:transparent;color:var(--green);font-size:21px;line-height:1}
+p.cart-total{display:flex;justify-content:space-between;gap:20px;padding-top:18px;margin:0;font-size:18px}
+p.cart-total strong{color:var(--green)}
+.form-feedback{min-height:24px;margin:10px 0 24px;color:var(--green);font-weight:600}
+.payment-panel{max-width:660px;border-color:#c39b43;background:#fff8e6}
+.auth-panel{max-width:660px}
+.auth-panel form:not([hidden]){display:block}
+.auth-panel form+form{margin-top:28px;padding-top:16px;border-top:1px solid var(--line)}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.panel-head h3{margin-bottom:10px}
+.order-card{border-top:1px solid var(--line);padding:20px 0}
+.order-card:first-child{border-top:0}
+.order-card p,.order-card li{font-size:13px}
+.order-card ul{padding-left:19px}
+.status-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.admin-item{display:grid;grid-template-columns:1fr 1.5fr 1.5fr 1fr 120px auto auto;gap:10px;align-items:end;border-top:1px solid var(--line);padding:14px 0}
+.admin-item label{margin:0}
+.admin-item .inline-label{align-self:center;white-space:nowrap}
+.admin-item input[type=checkbox]{width:18px;height:18px;vertical-align:middle}
+.admin-item .small-action{margin-bottom:4px}
+#admin-panel>form{max-width:520px;border-top:1px solid var(--line);margin-top:26px;padding-top:10px}
+#staff-credentials{overflow-wrap:anywhere}
+[hidden]{display:none!important}
+@media(max-width:1050px){.admin-item{grid-template-columns:1fr 1fr 1fr}.admin-item .small-action{align-self:end}}
+@media(max-width:760px){.shop-grid{grid-template-columns:1fr;gap:0}.shop-panel{padding:22px;border-radius:14px}.menu-item-action{gap:7px}.menu-item{gap:12px}.admin-item{grid-template-columns:1fr 1fr}.staff-row{align-items:flex-start}.shop-panel h3{font-size:28px}}
+@media(max-width:420px){.admin-item{grid-template-columns:1fr}.shop-panel{padding:18px}.cart-row{align-items:flex-start}}

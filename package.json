@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "КРУГ — современная кофейня. Адаптивный сайт на русском языке.",
+  "description": "milo — современная кофейня. Адаптивный сайт на русском языке.",
   "scripts": {
-    "dev": "node scripts/serve.mjs",
-    "start": "node scripts/serve.mjs",
-    "check": "node --check dist/app.js && node scripts/check.mjs",
-    "build": "npm run check"
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "check": "node --check dist/app.js && node --check worker/index.js && node scripts/check.mjs",
+    "build": "pnpm run check",
+    "seed:demo:local": "node scripts/seed-demo.mjs",
+    "seed:demo:remote": "node scripts/seed-demo.mjs --remote",
+    "smoke": "node scripts/smoke.mjs",
+    "smoke:admin": "node scripts/admin-smoke.mjs",
+    "deploy": "node scripts/deploy.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": { "node": ">=20" },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
 }

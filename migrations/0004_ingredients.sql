@@ -1,0 +1,20 @@
+ALTER TABLE menu_items ADD COLUMN ingredients_json TEXT NOT NULL DEFAULT '[]';
+
+UPDATE menu_items SET ingredients_json = '["100% арабика","вода"]' WHERE id = 'coffee-espresso';
+UPDATE menu_items SET ingredients_json = '["эспрессо","горячая вода"]' WHERE id = 'coffee-americano';
+UPDATE menu_items SET ingredients_json = '["эспрессо","молоко","молочная пена"]' WHERE id = 'coffee-cappuccino';
+UPDATE menu_items SET ingredients_json = '["двойной эспрессо","молоко","тонкая молочная пена"]' WHERE id = 'coffee-flat-white';
+UPDATE menu_items SET ingredients_json = '["эспрессо","молоко","микропена"]' WHERE id = 'coffee-latte';
+UPDATE menu_items SET description = 'Сливочный и нежный', ingredients_json = '["эспрессо","сливки 10%","ванильный сахар"]' WHERE id = 'coffee-vanilla-raf';
+UPDATE menu_items SET description = 'Прохладный, сливочный, в меру бодрый', ingredients_json = '["эспрессо","молоко","лёд"]' WHERE id = 'cold-iced-latte';
+UPDATE menu_items SET description = 'Кофе и свежий апельсин', ingredients_json = '["эспрессо","апельсиновый фреш","карамельный сироп","лёд"]' WHERE id = 'cold-bumble';
+UPDATE menu_items SET ingredients_json = '["100% арабика","вода","лёд"]' WHERE id = 'cold-brew';
+UPDATE menu_items SET ingredients_json = '["эспрессо","тоник","лайм","лёд"]' WHERE id = 'cold-espresso-tonic';
+UPDATE menu_items SET ingredients_json = '["чёрный чай","бергамот","горячая вода"]' WHERE id = 'tea-earl-grey';
+UPDATE menu_items SET ingredients_json = '["зелёный чай сенча","горячая вода"]' WHERE id = 'tea-sencha';
+UPDATE menu_items SET ingredients_json = '["облепиха","апельсин","мёд","корица","вода"]' WHERE id = 'tea-sea-buckthorn';
+UPDATE menu_items SET ingredients_json = '["чай матча","молоко","вода"]' WHERE id = 'tea-matcha-latte';
+UPDATE menu_items SET ingredients_json = '["пшеничная мука","сливочное масло","молоко","дрожжи","сахар","соль"]' WHERE id = 'food-croissant';
+UPDATE menu_items SET ingredients_json = '["творог","яйцо","рисовая мука","сметана","ягодный соус"]' WHERE id = 'food-syrniki';
+UPDATE menu_items SET ingredients_json = '["зерновой хлеб","авокадо","яйцо","творожный сыр","микрозелень"]' WHERE id = 'food-avocado-toast';
+UPDATE menu_items SET ingredients_json = '["морковь","пшеничная мука","грецкий орех","корица","крем-чиз"]' WHERE id = 'food-carrot-cake';
