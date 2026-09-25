@@ -15,7 +15,7 @@ const sha256 = async value => hex(await crypto.subtle.digest('SHA-256', encoder.
 
 async function passwordHash(password, saltHex) {
   const key = await crypto.subtle.importKey('raw', encoder.encode(password), 'PBKDF2', false, ['deriveBits']);
-  return hex(await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: Uint8Array.from(saltHex.match(/.{2}/g), byte => Number.parseInt(byte, 16)), iterations: 210000 }, key, 256));
+  return hex(await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: Uint8Array.from(saltHex.match(/.{2}/g), byte => Number.parseInt(byte, 16)), iterations: 100000 }, key, 256));
 }
 function secureEqual(a, b) {
   if (a.length !== b.length) return false;

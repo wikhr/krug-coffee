@@ -11,6 +11,8 @@
     "build": "pnpm run check",
     "seed:demo:local": "node scripts/seed-demo.mjs",
     "seed:demo:remote": "node scripts/seed-demo.mjs --remote",
+    "rehash:demo:local": "node scripts/seed-demo.mjs --rehash",
+    "rehash:demo:remote": "node scripts/seed-demo.mjs --rehash --remote",
     "smoke": "node scripts/smoke.mjs",
     "smoke:admin": "node scripts/admin-smoke.mjs",
     "deploy": "node scripts/deploy.mjs"
