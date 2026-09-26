@@ -30,6 +30,18 @@ const $ = selector => document.querySelector(selector);
 const feedback = (selector, message) => { $(selector).textContent = message; };
 const handle = async (selector, action) => { try { await action(); } catch (error) { feedback(selector, error.message); } };
 
+const categoryImages = {
+  coffee: './assets/coffee.jpg',
+  cold: './assets/iced-latte.jpg',
+  tea: './assets/tea.jpg',
+  food: './assets/food.jpg'
+};
+const productImages = {
+  'coffee-flat-white': './assets/flat-white.jpg',
+  'cold-iced-latte': './assets/iced-latte.jpg'
+};
+const getProductImage = product => productImages[product.id] || categoryImages[product.category_id] || './assets/coffee.jpg';
+
 function renderMenu() {
   const categories = state.menu.categories;
   if (!categories.some(category => category.id === state.category)) state.category = categories[0]?.id;
@@ -245,6 +257,9 @@ let toastTimer;
 function showProduct(id) {
   const product = state.menu.items.find(item => item.id === id);
   if (!product) return;
+  const image = $('.dialog-image');
+  image.src = getProductImage(product);
+  image.alt = `${product.name} — подача в кофейне milo`;
   $('#product-dialog-title').textContent = product.name;
   $('.dialog-description').textContent = product.description;
   $('.dialog-price').textContent = money(product.price_kopeks);
