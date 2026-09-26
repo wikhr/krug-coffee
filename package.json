@@ -1,0 +1,14 @@
+{
+  "name": "krug-coffee",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "КРУГ — современная кофейня. Адаптивный сайт на русском языке.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node --check dist/app.js && node scripts/check.mjs",
+    "build": "npm run check"
+  },
+  "engines": { "node": ">=20" }
+}
