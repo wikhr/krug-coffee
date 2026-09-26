@@ -10,7 +10,7 @@ for (const marker of required) {
 const sources = [...html.matchAll(/(?:src|href)="\.\/(?!#)([^"?]+)"/g)].map(match => match[1]);
 for (const source of sources) await access(resolve(root, source));
 if (html.includes('Lorem ipsum')) throw new Error('Placeholder copy found');
-for (const staleCopy of ['ходит к нам с открытия', 'наш постоянный гость', 'заходит по выходным']) {
-  if (html.includes(staleCopy)) throw new Error(`Stale review copy found: ${staleCopy}`);
+for (const staleCopy of ['ходит к нам с открытия', 'наш постоянный гость', 'заходит по выходным', 'В твоём ритме', 'Твой утренний ритуал', '01 / 03', 'Первая чашка']) {
+  if (html.includes(staleCopy)) throw new Error(`Stale copy found: ${staleCopy}`);
 }
 console.info(`Checked ${sources.length} local references and ${required.length} required sections.`);
