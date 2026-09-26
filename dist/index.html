@@ -17,8 +17,14 @@
     <div class="container header-inner">
       <a class="brand" href="#" aria-label="КРУГ — на главную"><span class="brand-mark" aria-hidden="true">◉</span><span>КРУГ<span class="brand-caption">кофе и время для себя</span></span></a>
       <nav class="desktop-nav" aria-label="Основная навигация"><a href="#menu">Меню</a><a href="#about">Наша история</a><a href="#atmosphere">Атмосфера</a></nav>
-      <a class="button button-small header-cta" href="#visit">Заглянуть в гости <span aria-hidden="true">↗</span></a>
-      <button class="menu-toggle" aria-label="Открыть навигацию" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+      <div class="header-actions">
+        <a class="button button-small header-cta" href="#visit">Заглянуть в гости <span aria-hidden="true">↗</span></a>
+        <button class="cart-button" type="button" aria-label="Открыть корзину, товаров: 0" aria-controls="cart-dialog">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 8V7a5 5 0 0 1 10 0v1m-12 0h14l-1 12H6L5 8Z"/></svg>
+          <span class="cart-label">Корзина</span><span class="cart-count" aria-hidden="true">0</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Открыть навигацию" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span></button>
+      </div>
     </div>
     <nav id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" hidden><a href="#menu">Меню</a><a href="#about">Наша история</a><a href="#atmosphere">Атмосфера</a><a href="#visit">Заглянуть в гости ↗</a></nav>
   </header>
@@ -61,15 +67,15 @@
         <div class="popular-grid">
           <article class="drink-card drink-card-featured">
             <div class="drink-image"><img src="./assets/coffee.jpg" alt="Капучино с нежным латте-артом" width="1536" height="1024" loading="lazy"><span class="card-tag">Бестселлер</span></div>
-            <div class="drink-info"><div><h3>Капучино</h3><p>Эспрессо, молоко и воздушная пена</p></div><strong>290 ₽</strong></div>
+            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="cappuccino">Капучино</button></h3><p>Эспрессо, молоко и воздушная пена</p></div><div class="drink-actions"><strong>290 ₽</strong><button class="add-button" type="button" data-add-product="cappuccino">Добавить <span aria-hidden="true">+</span></button></div></div>
           </article>
           <article class="drink-card">
             <div class="drink-image"><img src="./assets/iced-latte.jpg" alt="Айс-латте со льдом в высоком стеклянном стакане" width="1254" height="1254" loading="lazy"></div>
-            <div class="drink-info"><div><h3>Айс-латте</h3><p>Прохладный, сливочный, в меру бодрый</p></div><strong>340 ₽</strong></div>
+            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="iced-latte">Айс-латте</button></h3><p>Прохладный, сливочный, в меру бодрый</p></div><div class="drink-actions"><strong>340 ₽</strong><button class="add-button" type="button" data-add-product="iced-latte">Добавить <span aria-hidden="true">+</span></button></div></div>
           </article>
           <article class="drink-card">
             <div class="drink-image drink-image-crop"><img src="./assets/coffee.jpg" alt="Флэт уайт на двойном эспрессо" width="1536" height="1024" loading="lazy"></div>
-            <div class="drink-info"><div><h3>Флэт уайт</h3><p>Двойной эспрессо и тонкая молочная текстура</p></div><strong>320 ₽</strong></div>
+            <div class="drink-info"><div><h3><button class="product-title" type="button" data-product-id="flat-white">Флэт уайт</button></h3><p>Двойной эспрессо и тонкая молочная текстура</p></div><div class="drink-actions"><strong>320 ₽</strong><button class="add-button" type="button" data-add-product="flat-white">Добавить <span aria-hidden="true">+</span></button></div></div>
           </article>
         </div>
       </div>
@@ -94,16 +100,16 @@
     </section>
 
     <section id="atmosphere" class="atmosphere section reveal" aria-labelledby="atmosphere-title">
-      <div class="container atmosphere-head"><p class="eyebrow light"><span></span> Атмосфера</p><h2 id="atmosphere-title">Здесь легко<br><em>остаться подольше.</em></h2></div>
+      <div class="container atmosphere-head"><p class="eyebrow light"><span></span> Наше пространство</p><h2 id="atmosphere-title">Здесь легко<br><em>остаться подольше.</em></h2></div>
       <div class="atmosphere-image"><img src="./assets/interior.jpg" alt="Интерьер кофейни КРУГ с зелёными диванами, деревянной мебелью и мягким светом" width="1536" height="1024" loading="lazy"><div class="atmosphere-callout"><strong>Неспешно.<br>Уютно.<br>По-настоящему.</strong><span>место для встреч<br>и мыслей</span></div></div>
     </section>
 
     <section class="reviews section container reveal" aria-labelledby="reviews-title">
       <div class="reviews-head"><p class="eyebrow"><span></span> Говорят гости</p><h2 id="reviews-title">Тёплые слова<br><em>из нашего круга.</em></h2></div>
       <div class="reviews-grid">
-        <figure><div class="quote-mark">“</div><blockquote>Самый сливочный капучино в районе. А ещё здесь всегда помнят, что мне без сиропа.</blockquote><figcaption><span>АН</span><div><strong>Анна</strong><small>ходит к нам с открытия</small></div></figcaption></figure>
-        <figure><div class="quote-mark">“</div><blockquote>Можно прийти с ноутбуком утром, а вечером случайно встретить половину друзей. Очень живое место.</blockquote><figcaption><span>МК</span><div><strong>Максим</strong><small>наш постоянный гость</small></div></figcaption></figure>
-        <figure><div class="quote-mark">“</div><blockquote>Круассаны тёплые, музыка негромкая, бариста улыбаются. Всё, как должно быть.</blockquote><figcaption><span>ОЛ</span><div><strong>Ольга</strong><small>заходит по выходным</small></div></figcaption></figure>
+        <figure><div class="quote-mark">“</div><blockquote>Зашла случайно переждать дождь и теперь возвращаюсь за капучино. Он здесь без горечи и с плотной пеной.</blockquote><figcaption><span>АК</span><strong>Анна К.</strong></figcaption></figure>
+        <figure><div class="quote-mark">“</div><blockquote>Удобно встретиться перед театром. Вечером бывает людно, но заказ принесли быстро, а бамбл отличный.</blockquote><figcaption><span>МП</span><strong>Максим П.</strong></figcaption></figure>
+        <figure><div class="quote-mark">“</div><blockquote>Брала сырники и фильтр. Сырники нежные, не слишком сладкие, кофе горячий. Вернусь попробовать завтраки.</blockquote><figcaption><span>ОВ</span><strong>Ольга В.</strong></figcaption></figure>
       </div>
     </section>
 
@@ -118,5 +124,20 @@
     </section>
     <footer class="footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="#" aria-label="КРУГ — наверх"><span class="brand-mark" aria-hidden="true">◉</span><span>КРУГ<span class="brand-caption">кофе и время для себя</span></span></a><p>Будем рядом, когда захочется кофе.</p></div><nav aria-label="Навигация в подвале"><a href="#menu">Меню</a><a href="#about">О нас</a><a href="#atmosphere">Атмосфера</a><a href="#visit">Контакты</a></nav><a class="footer-contact" href="tel:+78125552020">+7 812 555-20-20</a></div><div class="container footer-bottom"><span>© 2026 КРУГ</span><span>Кофе объединяет</span></div></footer>
   </main>
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="product-dialog-title">
+    <button class="dialog-close" type="button" aria-label="Закрыть информацию о товаре">×</button>
+    <p class="dialog-kicker">Состав</p>
+    <h2 id="product-dialog-title"></h2>
+    <p class="dialog-description"></p>
+    <div class="ingredients" aria-label="Ингредиенты"></div>
+    <div class="dialog-footer"><strong class="dialog-price"></strong><button class="button dialog-add" type="button">Добавить в корзину <span aria-hidden="true">+</span></button></div>
+  </dialog>
+  <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title">
+    <div class="cart-head"><div><p class="dialog-kicker">Ваш заказ</p><h2 id="cart-title">Корзина</h2></div><button class="dialog-close cart-close" type="button" aria-label="Закрыть корзину">×</button></div>
+    <div class="cart-items" aria-live="polite"></div>
+    <div class="cart-summary"><span>Итого</span><strong class="cart-total">0 ₽</strong></div>
+    <a class="button cart-order" href="tel:+78125552020">Позвонить для заказа <span aria-hidden="true">↗</span></a>
+  </dialog>
+  <div class="cart-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
